@@ -1,0 +1,15 @@
+# Despliegue en Render (render.com): New > Blueprint > elegir este repositorio
+services:
+  - type: web
+    name: vitahub-whatsapp-bot
+    runtime: docker
+    rootDir: whatsapp-bot
+    plan: starter   # el plan gratuito se duerme y Meta deja de entregar mensajes a tiempo
+    healthCheckPath: /health
+    envVars:
+      - { key: WHATSAPP_VERIFY_TOKEN, sync: false }
+      - { key: META_APP_SECRET, sync: false }
+      - { key: WHATSAPP_TOKEN, sync: false }
+      - { key: BRAND_PHONE_MAP, sync: false }
+      - { key: OWNER_NOTIFY_NUMBER, sync: false }
+      - { key: ANTHROPIC_API_KEY, sync: false }

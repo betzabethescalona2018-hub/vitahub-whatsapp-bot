@@ -1,0 +1,152 @@
+# Configuración de las tiendas. Edita este archivo para cambiar lo que responde el bot.
+#
+# Cómo distingue el bot cada tienda (en este orden):
+#   1. Por el número de WhatsApp que recibió el mensaje (phone_number_ids).
+#      Si cada tienda tiene su propio número, la tienda queda fija.
+#   2. Por el anuncio desde el que llegó el cliente (Click-to-WhatsApp).
+#   3. Por las palabras del mensaje (strong_keywords, keywords y nombres de productos).
+#   4. Si no queda claro, pregunta con 3 botones y recuerda la respuesta.
+
+brands:
+  vitahubchile:
+    name: VitaHub Chile
+    button_title: VitaHub Chile        # máx. 20 caracteres
+    emoji: "💊"
+    tagline: suplementos y productos de bienestar y belleza
+    website: https://vitahubchile.com
+    shopify_domain: vitahubchile.com   # catálogo y precios en vivo desde /products.json
+    currency: CLP
+    phone_number_ids: []               # ej. ["123456789012345"]
+    strong_keywords: [vitahubchile, vitahub chile, vitahub.chile, suplemento, suplementos]
+    keywords:
+      [capsulas, gomitas, creatina, magnesio, colageno, berberina, ashwagandha, biotina,
+       vitamina, vitaminas, serum, gotas, proteina, frasco, frascos, 3x2, despacho, envio, belleza]
+    contact:
+      email: vitahubchile@gmail.com
+      instagram: "@vitahub.chile"
+      hours: Lunes a viernes, de 09:00 a 18:00 hrs
+    highlights:
+      - "Promo *Arma tu 3x2*: https://vitahubchile.com/collections/arma-tu-3x2"
+      - "Packs con descuento: https://vitahubchile.com/collections/packs"
+      - "Envío gratis en pedidos desde $30.000 (según zona)"
+    faqs:
+      - id: envio
+        title: Envíos
+        keywords: [envio, envios, enviar, envian, despacho, despachan, delivery, llega, llegar, demora, demoran, tarda, tardan, entrega, entregar, entregan, plazo, region, regiones, comuna, cobertura, starken, chilexpress]
+        answer: |
+          🚚 *Envíos VitaHub Chile*
+          • Despachamos a todo Chile, sujeto a cobertura del operador logístico.
+          • Costo estándar: $3.500. *Envío gratis desde $30.000* cuando aplica a tu zona.
+          • Plazo estimado: 3 a 5 días hábiles desde la confirmación del pedido.
+          El valor final del envío siempre se muestra antes de pagar.
+      - id: pago
+        title: Medios de pago
+        keywords: [pago, pagar, pagos, tarjeta, debito, credito, transferencia, webpay, contraentrega, contra entrega, cuotas]
+        answer: |
+          💳 *Medios de pago*
+          • Pago online con los medios habilitados en la tienda (se muestran al finalizar la compra).
+          • Pago contra entrega, cuando esté disponible según cobertura.
+      - id: devolucion
+        title: Cambios y devoluciones
+        keywords: [devolucion, devolver, devoluciones, cambio, cambiar producto, reembolso, retracto, garantia, defectuoso, danado, roto, equivocado]
+        answer: |
+          ↩️ *Cambios y devoluciones*
+          • Derecho a retracto: 10 días desde que recibes el producto, siempre que esté sin uso, cerrado y sin alteraciones.
+          • Por higiene y seguridad no se aceptan productos abiertos o consumidos.
+          • Si llegó dañado, defectuoso o distinto a lo comprado, envíanos el número de pedido, el producto, el problema y fotos, y lo resolvemos.
+          • Garantía legal de 6 meses ante fallas cubiertas por la ley.
+          Detalle: https://vitahubchile.com/policies/refund-policy
+      - id: pedido
+        title: Estado de mi pedido
+        keywords: [pedido, seguimiento, tracking, orden, numero de pedido, donde esta, no ha llegado, no llega]
+        handoff: true
+        answer: |
+          📦 Para revisar tu pedido necesito tu *número de pedido* (ej. #1234) o el correo con el que compraste. Escríbelo aquí y una persona del equipo lo revisa y te responde.
+      - id: uso
+        title: Consumo y salud
+        keywords: [embarazada, embarazo, lactancia, medicamento, medicamentos, enfermedad, diabetes, hipertension, contraindicacion, contraindicaciones, efectos secundarios, dosis]
+        answer: |
+          ℹ️ Nuestros suplementos no están destinados a diagnosticar, tratar, curar ni prevenir enfermedades y no reemplazan una alimentación equilibrada.
+          Sigue siempre las indicaciones del envase. Si estás embarazada, en lactancia, tomas medicamentos o tienes alguna condición de salud, consulta antes con un profesional de salud.
+    ai_guidelines: |
+      Vendes suplementos alimentarios y productos de belleza. Nunca afirmes que un producto
+      diagnostica, trata, cura o previene enfermedades, ni des indicaciones médicas o dosis
+      distintas a las del envase. Ante embarazo, lactancia, medicamentos o condiciones de salud,
+      recomienda consultar a un profesional de salud. Los resultados varían entre personas.
+
+  finanzas:
+    name: VitaHub Finanzas
+    button_title: VitaHub Finanzas
+    emoji: "📊"
+    tagline: plantillas de Excel para ordenar tus finanzas
+    website: ""                        # TODO: URL de la tienda
+    shopify_domain: ""                 # TODO: dominio si es tienda Shopify (activa catálogo en vivo)
+    currency: CLP
+    phone_number_ids: []
+    strong_keywords: [vitahub finanzas, finanzas vitahub, finanzas, excel, plantilla, plantillas]
+    keywords:
+      [planilla, planillas, presupuesto, presupuestos, ahorro, ahorrar, deuda, deudas, gastos,
+       ingresos, inversion, inversiones, hoja de calculo, google sheets, sheets, control de gastos, flujo de caja]
+    contact:
+      email: ""                        # TODO
+      instagram: ""                    # TODO
+      hours: ""                        # TODO
+    highlights: []
+    faqs:
+      - id: entrega
+        title: Entrega de las plantillas
+        keywords: [envio, envian, entrega, entregar, entregan, descarga, descargar, recibo, llega, llegar, demora, demoran, link, enlace, correo, acceso]
+        answer: |
+          📥 Nuestras plantillas son *productos digitales*: no hay despacho físico. Después de confirmar el pago recibes el enlace de descarga en tu correo electrónico.
+          Si no te llegó, revisa spam/promociones o escríbenos tu correo de compra y lo revisamos.
+      - id: compatibilidad
+        title: Compatibilidad
+        keywords: [compatible, compatibilidad, mac, celular, google sheets, sheets, version, office, funciona en]
+        handoff: true
+        answer: |
+          💻 Cuéntame qué plantilla te interesa y en qué programa la usarías (Excel, Google Sheets, versión) y una persona del equipo te confirma la compatibilidad.
+      - id: pedido
+        title: Problemas con mi compra
+        keywords: [pedido, compra, no me llego, no llego, reembolso, devolucion, pague]
+        handoff: true
+        answer: |
+          🧾 Escríbeme el *correo con el que compraste* y el nombre de la plantilla, y una persona del equipo lo revisa.
+    ai_guidelines: |
+      Vendes plantillas de Excel para finanzas personales y de negocios. No entregues asesoría
+      financiera, tributaria ni de inversión personalizada; las plantillas son herramientas de
+      organización. Si no conoces el precio o el contenido exacto de una plantilla, no lo inventes.
+
+  digital:
+    name: VitaHub Digital
+    button_title: VitaHub Digital
+    emoji: "📱"
+    tagline: productos digitales
+    website: ""                        # TODO
+    shopify_domain: ""                 # TODO
+    currency: CLP
+    phone_number_ids: []
+    strong_keywords: [vitahub digital, digital vitahub, digital, digitales, ebook, ebooks]
+    keywords:
+      [curso, cursos, guia, guias, pdf, descarga, descargar, descargable, libro digital, recetario,
+       programa, acceso, link, enlace]
+    contact:
+      email: ""                        # TODO
+      instagram: ""                    # TODO
+      hours: ""                        # TODO
+    highlights: []
+    faqs:
+      - id: entrega
+        title: Entrega
+        keywords: [envio, envian, entrega, entregar, entregan, descarga, descargar, recibo, llega, llegar, demora, demoran, link, enlace, correo, acceso]
+        answer: |
+          📥 Son *productos digitales*: no hay despacho físico. Después de confirmar el pago recibes el acceso o enlace de descarga en tu correo electrónico.
+          Si no te llegó, revisa spam/promociones o escríbenos tu correo de compra y lo revisamos.
+      - id: pedido
+        title: Problemas con mi compra
+        keywords: [pedido, compra, no me llego, no llego, reembolso, devolucion, pague, no puedo abrir, no abre]
+        handoff: true
+        answer: |
+          🧾 Escríbeme el *correo con el que compraste* y el nombre del producto, y una persona del equipo lo revisa.
+    ai_guidelines: |
+      Vendes productos digitales descargables. Si no conoces el precio o el contenido exacto de
+      un producto, no lo inventes.

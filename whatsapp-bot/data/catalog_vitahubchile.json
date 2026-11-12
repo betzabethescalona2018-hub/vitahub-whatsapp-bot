@@ -1,0 +1,268 @@
+[
+ {
+  "title": "Magnesio Complex 1000 mg – 60 cápsulas",
+  "handle": "magnesio-complex-1000-mg-60-capsulas",
+  "type": "Salud",
+  "price": 14990,
+  "available": true
+ },
+ {
+  "title": "Berberina Complex – 60 cápsulas",
+  "handle": "berberina-complex-60caps",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Melena de León Fortificada",
+  "handle": "melena-de-leon-fortificada",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Creatina Monohidratada 200 mesh 300 g",
+  "handle": "creatina-monohidratada-300g-de-200mesh",
+  "type": "Salud",
+  "price": 15990,
+  "available": true
+ },
+ {
+  "title": "Creatina WOMAN Monohidratada 300 g",
+  "handle": "creatina-woman-monohidratada-300g",
+  "type": "Salud",
+  "price": 15990,
+  "available": true
+ },
+ {
+  "title": "Gomitas Óxido Nítrico 1000 mg – 60 gomitas",
+  "handle": "60-gomitas-oxido-nitrico-1000mg",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Aceite de Semilla de Calabaza – 60 cápsulas",
+  "handle": "aceite-de-semilla-de-calabaza-60caps",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Vinagre de Manzana 1000 mg – 60 cápsulas",
+  "handle": "vinagre-de-manzana-60caps",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Gomitas Ashwagandha 1000 mg – 60 gomitas",
+  "handle": "60-gomitas-ashwagandha-1000mg",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Gomitas NAD+ Resveratrol 1000 mg – 60 gomitas",
+  "handle": "60-gomitas-nad-resveratrol-1000mg",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Biotina + Colágeno 1000 mg – 60 cápsulas",
+  "handle": "biotina-colageno-1000mg-60caps",
+  "type": "Salud",
+  "price": 17990,
+  "available": true
+ },
+ {
+  "title": "Testo Power 1000 mg – 60 cápsulas",
+  "handle": "testo-power-1000mg-60caps",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Candida Cleanse 1000 mg – 60 cápsulas",
+  "handle": "candida-cleanse-1000mg-60-caps",
+  "type": "Salud",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Pack Power y Calma – Testo Power + Gomitas Ashwagandha",
+  "handle": "pack-power-y-calma-testo-power-gomitas-ashwagandha",
+  "type": "Pack",
+  "price": 24990,
+  "available": true
+ },
+ {
+  "title": "Dúo Pack VitaHub – NAD+ Resveratrol + Ashwagandha",
+  "handle": "duo-pack-vitahub-nad-resveratrol-ashwagandha",
+  "type": "Pack",
+  "price": 29990,
+  "available": true
+ },
+ {
+  "title": "Pack x3 Gomitas NAD+ Resveratrol – 3 frascos",
+  "handle": "pack-x3-nad-resveratrol-3-frascos",
+  "type": "Pack",
+  "price": 34990,
+  "available": true
+ },
+ {
+  "title": "Creatina Monohidratada Micronizada 1 kg",
+  "handle": "creatina-1kg-monohidratada-micronizada",
+  "type": "Salud",
+  "price": 29990,
+  "available": true
+ },
+ {
+  "title": "Pack 3x2 Magnesio Complex – Lleva 3, paga 2",
+  "handle": "magnesio-complex-3x2",
+  "type": "Pack",
+  "price": 29980,
+  "available": true
+ },
+ {
+  "title": "Pack Él y Ella – Creatina WOMAN + Creatina 300 g",
+  "handle": "pack-el-y-ella-creatina-woman-creatina-300-g",
+  "type": "Pack",
+  "price": 28990,
+  "available": true
+ },
+ {
+  "title": "Pack Woman Fit – Creatina WOMAN + Biotina + Colágeno",
+  "handle": "pack-woman-fit-creatina-woman-biotina-colageno",
+  "type": "Pack",
+  "price": 30990,
+  "available": true
+ },
+ {
+  "title": "Pack Entrena y Descansa – Creatina 300 g + Magnesio Complex",
+  "handle": "pack-entrena-y-descansa-creatina-300-g-magnesio-complex",
+  "type": "Pack",
+  "price": 28990,
+  "available": true
+ },
+ {
+  "title": "Serum Facial 24K Gold – 30 ml",
+  "handle": "serum-facial-24k-gold",
+  "type": "Belleza",
+  "price": 12990,
+  "available": true
+ },
+ {
+  "title": "Karseell Tratamiento Capilar con Colágeno",
+  "handle": "karseell-tratamiento-capilar-colageno",
+  "type": "Belleza",
+  "price": 17990,
+  "available": true
+ },
+ {
+  "title": "Pack Belleza Total – Biotina + Colágeno, Serum 24K Gold y Karseell",
+  "handle": "pack-belleza-total-biotina-colageno-serum-24k-gold-y-karseell",
+  "type": "Pack",
+  "price": 39990,
+  "available": true
+ },
+ {
+  "title": "Vitamina B12 en Gotas – Complejo B",
+  "handle": "b12-vitamina",
+  "type": "Salud",
+  "price": 14990,
+  "available": true
+ },
+ {
+  "title": "Aurelys Gotas Herbales – 30 ml",
+  "handle": "aurelys-drenaje-linfatico",
+  "type": "Salud",
+  "price": 14990,
+  "available": true
+ },
+ {
+  "title": "Curvy Gummies – Gomitas de Pitahaya",
+  "handle": "curvy-gummies",
+  "type": "Salud",
+  "price": 12990,
+  "available": true
+ },
+ {
+  "title": "Creatina Monohidratada Old School – 240 g",
+  "handle": "creatina-monohydrate-old-school-240-gr",
+  "type": "Salud",
+  "price": 12490,
+  "available": true
+ },
+ {
+  "title": "Vascu Glow Gotas – 60 ml",
+  "handle": "vascu-glow-clean-nutra-x-60-ml",
+  "type": "Salud",
+  "price": 12490,
+  "available": true
+ },
+ {
+  "title": "Enzimas Digestivas Physicians – 60 cápsulas",
+  "handle": "physicians-enzimas-digestivas-x-60-caps",
+  "type": "Salud",
+  "price": 14990,
+  "available": true
+ },
+ {
+  "title": "Vitamina B12 Nusava – Combo 2 unidades",
+  "handle": "vitamina-b12-nusava-combo-x-2-unidades",
+  "type": "Salud",
+  "price": 24990,
+  "available": true
+ },
+ {
+  "title": "Lymphoria Gotas Herbales – Combo 2 unidades",
+  "handle": "lymphoria-linfatico-combo-x-2-unidades",
+  "type": "Salud",
+  "price": 24990,
+  "available": true
+ },
+ {
+  "title": "Colágeno Neocell Super Collagen – 567 g",
+  "handle": "colageno-neocell-super-collagen-567-g",
+  "type": "Otro",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Berberina en Gotas – Suplemento Líquido",
+  "handle": "berberina-en-gotas-suplemento-liquido",
+  "type": "Salud",
+  "price": 17990,
+  "available": true
+ },
+ {
+  "title": "Deep Collagen – Colágeno para tu rutina de belleza",
+  "handle": "deep-collagen-colageno-para-tu-rutina-de-belleza",
+  "type": "Belleza",
+  "price": 19990,
+  "available": true
+ },
+ {
+  "title": "Pack Ligera y Radiante – Lymphoria + Colágeno Neocell",
+  "handle": "pack-ligera-y-radiante-lymphoria-colageno-neocell",
+  "type": "Pack",
+  "price": 29990,
+  "available": true
+ },
+ {
+  "title": "Pack Drenaje y Colágeno – Aurelys + Deep Collagen",
+  "handle": "pack-drenaje-y-colageno-aurelys-deep-collagen",
+  "type": "Pack",
+  "price": 29990,
+  "available": true
+ },
+ {
+  "title": "Lymphoria Gotas Herbales – 60 ml",
+  "handle": "lymphoria-drenaje-linfatico-x-60-ml",
+  "type": "Salud",
+  "price": 21990,
+  "available": true
+ }
+]
