@@ -81,6 +81,8 @@ class Settings:
     catalog_ttl_minutes: float = 15
     ai_enabled: bool = False
     ai_model: str = "claude-opus-5-5"
+    kapso_api_key: str = ""
+    kapso_webhook_secret: str = ""
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -97,6 +99,8 @@ class Settings:
             catalog_ttl_minutes=float(env("CATALOG_TTL_MINUTES", "15")),
             ai_enabled=has_key and env("AI_ENABLED", "true").lower() != "false",
             ai_model=env("CLAUDE_MODEL", "claude-opus-5-5"),
+            kapso_api_key=env("KAPSO_API_KEY", ""),
+            kapso_webhook_secret=env("KAPSO_WEBHOOK_SECRET", ""),
         )
 
 

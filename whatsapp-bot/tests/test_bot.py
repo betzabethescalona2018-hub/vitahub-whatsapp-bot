@@ -3,6 +3,7 @@ import hashlib
 import hmac
 import json
 
+import httpx
 import pytest
 from fastapi.testclient import TestClient
 
@@ -11,6 +12,7 @@ from app.catalog import Catalog
 from app.config import Settings, load_brands
 from app.main import create_app, parse_messages
 from app.router import BrandRouter
+from app.whatsapp import WhatsAppClient
 
 
 class FakeSender:
@@ -186,6 +188,13 @@ def test_parse_messages():
     assert incoming[0].text == "tienen berberina?" and incoming[0].name == "Ana" and not echoes
 
 
+def test_webhook_rejects_messages_without_app_secret():
+    bot, sender = make_bot()
+    client = TestClient(create_app(bot.settings, bot))
+    assert client.post("/webhook", json=PAYLOAD).status_code == 403
+    assert sender.sent == []
+
+
 def test_webhook_verify_signature_and_reply():
     bot, sender = make_bot(verify_token="tok", app_secrets=["secret"])
     client = TestClient(create_app(bot.settings, bot))
@@ -198,3 +207,39 @@ def test_webhook_verify_signature_and_reply():
     sig = "sha256=" + hmac.new(b"secret", body, hashlib.sha256).hexdigest()
     assert client.post("/webhook", content=body, headers={"x-hub-signature-256": sig}).status_code == 200
     assert "Berberina" in sender.last
+
+
+def test_kapso_webhook_checks_signature_and_handles_manual_reply():
+    bot, sender = make_bot(kapso_webhook_secret="kapso-secret")
+    client = TestClient(create_app(bot.settings, bot))
+    body = json.dumps(PAYLOAD).encode()
+    assert client.post("/webhook/kapso", content=body).status_code == 403
+
+    def post(payload):
+        body = json.dumps(payload).encode()
+        signature = hmac.new(b"kapso-secret", body, hashlib.sha256).hexdigest()
+        return client.post("/webhook/kapso", content=body, headers={"X-Webhook-Signature": signature})
+
+    echo = {"entry": [{"changes": [{"field": "smb_message_echoes", "value": {
+        "metadata": {"phone_number_id": "SHARED"}, "message_echoes": [{"to": "56911111111"}]
+    }}]}]}
+    assert post(echo).status_code == 200
+    assert post(PAYLOAD).status_code == 200
+    assert sender.sent == []
+
+
+def test_kapso_client_uses_proxy_and_project_key():
+    async def send():
+        def handle(request):
+            assert str(request.url) == "https://api.kapso.ai/meta/whatsapp/v24.0/123/messages"
+            assert request.headers["X-API-Key"] == "test-key"
+            assert json.loads(request.content)["text"]["body"] == "Hola"
+            return httpx.Response(200)
+
+        sender = WhatsAppClient(Settings(kapso_api_key="test-key"))
+        await sender.http.aclose()
+        async with httpx.AsyncClient(transport=httpx.MockTransport(handle)) as client:
+            sender.http = client
+            assert await sender.send_text("123", "56911111111", "Hola")
+
+    run(send())

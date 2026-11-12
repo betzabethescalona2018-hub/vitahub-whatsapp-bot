@@ -39,6 +39,7 @@ Todo el contenido está en [`brands.yaml`](brands.yaml): nombre, palabras clave,
 
 1. **Publica el servidor** en un hosting con HTTPS. Con Render: *New > Blueprint* y elige este repositorio (usa `render.yaml`). También sirve cualquier servicio que ejecute el `Dockerfile`. Debe correr **una sola instancia** (las conversaciones se guardan en memoria).
 2. **Variables de entorno:** copia `.env.example` y complétalas en el hosting.
+   El webhook requiere `META_APP_SECRET` para aceptar mensajes. En local, el simulador funciona sin credenciales. Para cargar un archivo `.env` con Uvicorn, instala `python-dotenv` y usa `python -m uvicorn app.main:app --env-file .env`.
 3. **En Meta** (developers.facebook.com), con una app que tenga el producto WhatsApp conectada al negocio:
    - Registra el o los números en WhatsApp Cloud API.
    - Webhook: URL `https://TU-DOMINIO/webhook`, token de verificación igual a `WHATSAPP_VERIFY_TOKEN`, suscrito al campo `messages`.
@@ -46,6 +47,16 @@ Todo el contenido está en [`brands.yaml`](brands.yaml): nombre, palabras clave,
    - Copia la clave secreta de la app → `META_APP_SECRET`.
 4. **Un número por tienda (opcional):** `BRAND_PHONE_MAP=<phone_number_id>:vitahubchile,<phone_number_id>:finanzas,<phone_number_id>:digital`.
 5. Comprueba `https://TU-DOMINIO/health` y envía un mensaje de prueba.
+
+### Coexistencia con Kapso
+
+Vincula el número con **Connect WhatsApp Business App**. En Render, configura
+`KAPSO_API_KEY` con la clave del proyecto de Kapso y `KAPSO_WEBHOOK_SECRET` con
+un secreto exclusivo para el webhook. En Kapso, configura el webhook de tipo
+**Meta** para ese número con el mismo secreto y la URL
+`https://TU-DOMINIO/webhook/kapso`. Si el número atiende todas las tiendas, deja
+`BRAND_PHONE_MAP` vacío. Prueba una consulta y confirma que al responder
+manualmente desde WhatsApp Business el bot se silencia en ese chat.
 
 ## Límites que conviene conocer
 

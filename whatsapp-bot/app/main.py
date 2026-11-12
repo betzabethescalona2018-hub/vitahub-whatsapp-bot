@@ -72,7 +72,7 @@ def create_app(settings: Settings | None = None, bot: Bot | None = None) -> Fast
         ai = AIResponder(settings.ai_model) if settings.ai_enabled else None
         bot = Bot(settings, load_brands(), WhatsAppClient(settings), ai=ai)
     if not settings.app_secrets:
-        log.warning("META_APP_SECRET no configurado: no se verifica la firma del webhook (solo para pruebas)")
+        log.warning("META_APP_SECRET no configurado: la recepción de mensajes está deshabilitada")
     log.info("Tiendas: %s | IA: %s", ", ".join(bot.brands), "activada" if bot.ai else "desactivada (reglas)")
 
     app = FastAPI(title="Bot WhatsApp VitaHub")
@@ -91,16 +91,12 @@ def create_app(settings: Settings | None = None, bot: Bot | None = None) -> Fast
             return Response(q.get("hub.challenge", ""), media_type="text/plain")
         raise HTTPException(403, "Token de verificación inválido")
 
-    @app.post("/webhook")
-    async def receive(request: Request, tasks: BackgroundTasks):
-        body = await request.body()
-        if settings.app_secrets and not valid_signature(
-            settings.app_secrets, body, request.headers.get("x-hub-signature-256", "")
-        ):
-            raise HTTPException(403, "Firma inválida")
+    def process_webhook(body: bytes, tasks: BackgroundTasks):
         try:
             payload = json.loads(body)
         except ValueError:
+            raise HTTPException(400, "JSON inválido")
+        if not isinstance(payload, dict):
             raise HTTPException(400, "JSON inválido")
         incoming, echoes = parse_messages(payload)
         for pnid, customer in echoes:
@@ -108,6 +104,25 @@ def create_app(settings: Settings | None = None, bot: Bot | None = None) -> Fast
         for inc in incoming:
             tasks.add_task(bot.handle, inc)  # responder 200 de inmediato; Meta reintenta si demora
         return {"status": "ok"}
+
+    @app.post("/webhook")
+    async def receive(request: Request, tasks: BackgroundTasks):
+        body = await request.body()
+        if not valid_signature(
+            settings.app_secrets, body, request.headers.get("x-hub-signature-256", "")
+        ):
+            raise HTTPException(403, "Firma inválida")
+        return process_webhook(body, tasks)
+
+    @app.post("/webhook/kapso")
+    async def receive_kapso(request: Request, tasks: BackgroundTasks):
+        body = await request.body()
+        signature = request.headers.get("x-webhook-signature", "")
+        if not settings.kapso_webhook_secret or not valid_signature(
+            [settings.kapso_webhook_secret], body, f"sha256={signature}"
+        ):
+            raise HTTPException(403, "Firma inválida")
+        return process_webhook(body, tasks)
 
     return app
 

@@ -28,14 +28,19 @@ class WhatsAppClient:
 
     async def _post(self, phone_number_id: str, payload: dict) -> bool:
         token = token_for(self.settings, phone_number_id)
-        if not token:
+        if self.settings.kapso_api_key:
+            url = f"https://api.kapso.ai/meta/whatsapp/v24.0/{phone_number_id}/messages"
+            headers = {"X-API-Key": self.settings.kapso_api_key}
+        elif token:
+            url = f"https://graph.facebook.com/{self.settings.graph_version}/{phone_number_id}/messages"
+            headers = {"Authorization": f"Bearer {token}"}
+        else:
             log.error("Falta WHATSAPP_TOKEN: no se envió el mensaje")
             return False
-        url = f"https://graph.facebook.com/{self.settings.graph_version}/{phone_number_id}/messages"
         try:
             r = await self.http.post(
                 url,
-                headers={"Authorization": f"Bearer {token}"},
+                headers=headers,
                 json={"messaging_product": "whatsapp", **payload},
             )
         except httpx.HTTPError as e:

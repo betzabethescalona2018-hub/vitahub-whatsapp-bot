@@ -4,7 +4,7 @@ services:
     name: vitahub-whatsapp-bot
     runtime: docker
     rootDir: whatsapp-bot
-    plan: starter   # el plan gratuito se duerme y Meta deja de entregar mensajes a tiempo
+    plan: free
     healthCheckPath: /health
     envVars:
       - { key: WHATSAPP_VERIFY_TOKEN, sync: false }
