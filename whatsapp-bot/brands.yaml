@@ -84,6 +84,10 @@ brands:
         ¡Hola! 👋 Gracias por escribirnos. Este es el curso Excel + IA: de las fórmulas básicas a la automatización 👉 https://vitahubchile-finanzas.myshopify.com/products/excel-ia-de-las-formulas-basicas-a-la-automatizacion
 
         Pagas con Webpay o Mercado Pago y te llega al tiro a tu correo. ¿Qué nivel de Excel tienes? Así te cuento por dónde empezar 📊
+    selection_message_other_prefixes: |-
+      ¡Hola! 👋 Gracias por escribirnos. Este es el curso Excel + IA: de las fórmulas básicas a la automatización 👉 https://vitahubchile.hotmart.host/excel-ia-de-las-formulas-basicas-a-la-automatizacion-0fb8e1a9-3fd6-48b9-bf74-1063db642116
+
+      Puedes pagar en tu moneda local desde la página. ¿Qué nivel de Excel tienes? Así te cuento por dónde empezar 📊
     website: ""                        # TODO: URL de la tienda
     shopify_domain: ""                 # TODO: dominio si es tienda Shopify (activa catálogo en vivo)
     currency: CLP

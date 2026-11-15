@@ -52,6 +52,7 @@ class Brand:
     faqs: list[Faq] = field(default_factory=list)
     ai_guidelines: str = ""
     selection_messages: dict[str, str] = field(default_factory=dict)
+    selection_message_other_prefixes: str = ""
 
 
 def load_brands(path: Path | None = None) -> dict[str, Brand]:

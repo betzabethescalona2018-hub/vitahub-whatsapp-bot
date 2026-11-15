@@ -124,7 +124,7 @@ class Bot:
             number = inc.sender.removeprefix("+")
             message = next(
                 (body for prefix, body in brand.selection_messages.items() if number.startswith(prefix)),
-                "",
+                brand.selection_message_other_prefixes,
             ) if number.isascii() and number.isdecimal() else ""
             if message:
                 await say(message)
