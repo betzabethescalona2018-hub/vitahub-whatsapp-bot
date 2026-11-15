@@ -119,6 +119,28 @@ def test_each_store_answers_with_its_own_info():
     assert "productos digitales" in sender.last and "$3.500" not in sender.last
 
 
+@pytest.mark.parametrize("number, personalized", [
+    ("56911111111", True), ("+56911111111", True), ("54911111111", False), ("CL.56123456789", False),
+])
+@pytest.mark.parametrize("selection", [
+    {"text": "2"}, {"kind": "button", "button_id": "brand:finanzas"},
+])
+def test_finanzas_selection_message_by_phone_prefix(number, personalized, selection):
+    bot, sender = make_bot()
+    run(bot.handle(msg("hola", sender=number)))
+    run(bot.handle(msg(sender=number, **selection)))
+    if personalized:
+        assert sender.last == bot.brands["finanzas"].selection_messages["56"]
+    else:
+        assert "Soy el asistente virtual de *VitaHub Finanzas*" in sender.last
+
+
+def test_finanzas_detected_from_message_uses_regular_welcome():
+    bot, sender = make_bot()
+    run(bot.handle(msg("finanzas")))
+    assert "Soy el asistente virtual de *VitaHub Finanzas*" in sender.last
+
+
 def test_product_search_gives_price_and_link():
     bot, sender = make_bot()
     run(bot.handle(msg("precio de la creatina woman")))

@@ -79,6 +79,11 @@ brands:
     button_title: VitaHub Finanzas
     emoji: "📊"
     tagline: plantillas de Excel para ordenar tus finanzas
+    selection_messages:
+      "56": |-
+        ¡Hola! 👋 Gracias por escribirnos. Este es el curso Excel + IA: de las fórmulas básicas a la automatización 👉 https://vitahubchile-finanzas.myshopify.com/products/excel-ia-de-las-formulas-basicas-a-la-automatizacion
+
+        Pagas con Webpay o Mercado Pago y te llega al tiro a tu correo. ¿Qué nivel de Excel tienes? Así te cuento por dónde empezar 📊
     website: ""                        # TODO: URL de la tienda
     shopify_domain: ""                 # TODO: dominio si es tienda Shopify (activa catálogo en vivo)
     currency: CLP

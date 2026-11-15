@@ -120,10 +120,18 @@ class Bot:
             chosen = list(self.brands)[int(norm) - 1]
         if chosen in self.brands and not fixed:
             s.brand, pending, s.pending = chosen, s.pending, ""
+            brand = self.brands[chosen]
+            number = inc.sender.removeprefix("+")
+            message = next(
+                (body for prefix, body in brand.selection_messages.items() if number.startswith(prefix)),
+                "",
+            ) if number.isascii() and number.isdecimal() else ""
+            if message:
+                await say(message)
             if pending:
-                await self._answer(inc, s, self.brands[chosen], pending)
-            else:
-                await self._welcome(inc, s, self.brands[chosen])
+                await self._answer(inc, s, brand, pending)
+            elif not message:
+                await self._welcome(inc, s, brand)
             return
 
         if norm in MENU_WORDS:
