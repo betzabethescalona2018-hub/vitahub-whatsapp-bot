@@ -126,36 +126,29 @@ brands:
       organización. Si no conoces el precio o el contenido exacto de una plantilla, no lo inventes.
 
   digital:
-    name: VitaHub Digital
-    button_title: VitaHub Digital
-    emoji: "📱"
-    tagline: productos digitales
+    name: VitaHub Diseño Web
+    button_title: VitaHub Diseño Web
+    emoji: "🌐"
+    tagline: diseño de sitios web
     website: ""                        # TODO
     shopify_domain: ""                 # TODO
     currency: CLP
     phone_number_ids: []
-    strong_keywords: [vitahub digital, digital vitahub, digital, digitales, ebook, ebooks]
+    strong_keywords: [vitahub diseño web, diseño web, diseño de páginas web, diseño de sitios web]
     keywords:
-      [curso, cursos, guia, guias, pdf, descarga, descargar, descargable, libro digital, recetario,
-       programa, acceso, link, enlace]
+      [sitio web, página web, tienda online, landing page, rediseño web]
     contact:
       email: ""                        # TODO
       instagram: ""                    # TODO
       hours: ""                        # TODO
     highlights: []
     faqs:
-      - id: entrega
-        title: Entrega
-        keywords: [envio, envian, entrega, entregar, entregan, descarga, descargar, recibo, llega, llegar, demora, demoran, link, enlace, correo, acceso]
-        answer: |
-          📥 Son *productos digitales*: no hay despacho físico. Después de confirmar el pago recibes el acceso o enlace de descarga en tu correo electrónico.
-          Si no te llegó, revisa spam/promociones o escríbenos tu correo de compra y lo revisamos.
-      - id: pedido
-        title: Problemas con mi compra
-        keywords: [pedido, compra, no me llego, no llego, reembolso, devolucion, pague, no puedo abrir, no abre]
+      - id: cotizacion
+        title: Cotizar un sitio web
+        keywords: [cotizar, cotización, presupuesto, precio, precios, cuánto cuesta]
         handoff: true
         answer: |
-          🧾 Escríbeme el *correo con el que compraste* y el nombre del producto, y una persona del equipo lo revisa.
+          Cuéntanos qué tipo de sitio web necesitas y si ya tienes uno. Una persona del equipo revisará tu consulta.
     ai_guidelines: |
-      Vendes productos digitales descargables. Si no conoces el precio o el contenido exacto de
-      un producto, no lo inventes.
+      Atiendes consultas sobre diseño web. Deriva las cotizaciones al equipo.
+      Evita inventar precios, plazos o condiciones del servicio.

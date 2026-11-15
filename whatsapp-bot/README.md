@@ -6,13 +6,13 @@ Responde automáticamente los mensajes de WhatsApp de tres tiendas y mantiene se
 |---|---|---|
 | 💊 VitaHub Chile | `vitahubchile` | Productos y precios en vivo desde vitahubchile.com, envíos, pagos, devoluciones, promos |
 | 📊 VitaHub Finanzas | `finanzas` | Plantillas de Excel: entrega digital, compatibilidad, problemas de compra |
-| 📱 VitaHub Digital | `digital` | Productos digitales: entrega, problemas de compra |
+| 🌐 VitaHub Diseño Web | `digital` | Consultas y cotizaciones de diseño web |
 
 ## Cómo distingue la tienda
 
 1. **Por el número** que recibió el mensaje. Si cada tienda tiene su propio número de WhatsApp, queda fija y nunca pregunta.
 2. **Por el anuncio** desde el que llegó el cliente (Click-to-WhatsApp de Meta).
-3. **Por el mensaje**: nombre de la tienda, palabras clave y nombres de productos del catálogo ("creatina" → VitaHub Chile, "plantilla de presupuesto" → Finanzas, "ebook" → Digital).
+3. **Por el mensaje**: nombre de la tienda, palabras clave y nombres de productos del catálogo ("creatina" → VitaHub Chile, "plantilla de presupuesto" → Finanzas, "diseño web" → VitaHub Diseño Web).
 4. **Si no queda claro, pregunta** con tres botones, recuerda la elección y responde la consulta original.
 
 El cliente puede escribir `menú` para cambiar de tienda y `asesor` para hablar con una persona. Al derivar, el bot se queda en silencio 12 horas en ese chat (configurable) y, si defines `OWNER_NOTIFY_NUMBER`, te avisa por WhatsApp.

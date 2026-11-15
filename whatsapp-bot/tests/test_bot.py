@@ -74,8 +74,8 @@ def router():
         ("info de la plantilla de presupuesto en excel", "finanzas"),
         ("Hola vengo por VitaHub Finanzas", "finanzas"),
         ("quiero ordenar mis deudas y gastos", "finanzas"),
-        ("me interesa el ebook", "digital"),
-        ("hola, consulta por vitahub digital", "digital"),
+        ("me interesa el diseño de páginas web", "digital"),
+        ("hola, consulta por vitahub diseño web", "digital"),
         ("hola", None),
         ("quiero comprar", None),
     ],
@@ -151,7 +151,7 @@ def test_greeting_on_dedicated_number_skips_picker():
     bot, sender = make_bot()
     bot.router.by_phone["222"] = "digital"
     run(bot.handle(msg("hola", pnid="222", name="Ana Pérez")))
-    assert sender.sent[-1][0] == "text" and "VitaHub Digital" in sender.last and "Hola Ana" in sender.last
+    assert sender.sent[-1][0] == "text" and "VitaHub Diseño Web" in sender.last and "Hola Ana" in sender.last
 
 
 def test_handoff_pauses_bot_and_notifies_owner():
