@@ -15,6 +15,7 @@ log = logging.getLogger("bot")
 
 GREETINGS = {"hola", "holi", "ola", "buenas", "buenos dias", "buen dia", "buenas tardes", "buenas noches", "hello", "hi", "alo"}
 MENU_WORDS = {"menu", "inicio", "cambiar tienda", "cambiar de tienda", "otra tienda", "tiendas", "volver"}
+AD_INFO_MESSAGES = {"hola quiero mas informacion", "quiero mas informacion", "hola quiero informacion", "quiero informacion"}
 RESUME_WORDS = MENU_WORDS | {"bot"}
 HUMAN_PHRASES = [
     "asesor", "asesora", "humano", "persona", "ejecutivo", "ejecutiva", "agente", "vendedor", "vendedora",
@@ -121,11 +122,7 @@ class Bot:
         if chosen in self.brands and not fixed:
             s.brand, pending, s.pending = chosen, s.pending, ""
             brand = self.brands[chosen]
-            number = inc.sender.removeprefix("+")
-            message = next(
-                (body for prefix, body in brand.selection_messages.items() if number.startswith(prefix)),
-                brand.selection_message_other_prefixes,
-            ) if number.isascii() and number.isdecimal() else ""
+            message = self._selection_message(inc, brand)
             if message:
                 await say(message)
             if pending:
@@ -166,6 +163,12 @@ class Bot:
             await self._handoff(inc, s, brand, inc.text)
             return
 
+        if decision.reason == "anuncio" and (is_greeting or norm in AD_INFO_MESSAGES):
+            message = self._selection_message(inc, brand)
+            if message:
+                await say(message)
+                return
+
         only_brand_name = any(norm == normalize(k) for k in brand.strong_keywords + [brand.name])
         if is_greeting or only_brand_name:
             if s.pending:
@@ -178,6 +181,15 @@ class Bot:
         await self._answer(inc, s, brand, inc.text)
 
     # ---------- mensajes base ----------
+    def _selection_message(self, inc: Incoming, brand: Brand) -> str:
+        number = inc.sender.removeprefix("+")
+        if not number.isascii() or not number.isdecimal():
+            return ""
+        return next(
+            (body for prefix, body in brand.selection_messages.items() if number.startswith(prefix)),
+            brand.selection_message_other_prefixes,
+        )
+
     async def _ask_brand(self, inc: Incoming) -> None:
         lines = [f"{b.emoji} *{b.name}*: {b.tagline}" for b in self.brands.values()]
         body = "¡Hola! 👋 Gracias por escribirnos. ¿Sobre cuál de nuestras tiendas es tu consulta?\n\n" + "\n".join(lines)

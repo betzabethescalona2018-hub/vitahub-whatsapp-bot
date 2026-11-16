@@ -140,6 +140,17 @@ def test_finanzas_detected_from_message_uses_regular_welcome():
     assert "Soy el asistente virtual de *VitaHub Finanzas*" in sender.last
 
 
+@pytest.mark.parametrize(("number", "domain"), [
+    ("595981234567", "hotmart.host"),
+    ("56911111111", "myshopify.com"),
+])
+def test_excel_ad_information_request_sends_offer(number, domain):
+    bot, sender = make_bot()
+    run(bot.handle(msg("¡Hola! Quiero más información", sender=number, referral_text="Excel + IA, sin enredos")))
+    assert len(sender.sent) == 1
+    assert domain in sender.last and "¿Qué nivel de Excel tienes?" in sender.last
+
+
 def test_product_search_gives_price_and_link():
     bot, sender = make_bot()
     run(bot.handle(msg("precio de la creatina woman")))
